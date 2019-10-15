@@ -1,7 +1,8 @@
-package com.example.quizme;
+package com.example.quizme.UI.Activities;
 
 import android.os.Bundle;
 
+import com.example.quizme.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
