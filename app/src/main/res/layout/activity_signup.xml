@@ -1,90 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF"
     tools:context=".UI.Activities.SignupActivity">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+
 
         <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            android:layout_width="363dp"
-            android:layout_height="564dp"
-            android:layout_centerInParent="true"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:orientation="vertical"
-            tools:ignore="UselessParent">
-        <TextView
-            android:id="@+id/fullscreen_content"
             android:layout_width="match_parent"
-            android:layout_height="200px"
-            android:gravity="center"
-            android:keepScreenOn="true"
-            android:text="@string/dummy_content"
-            android:textColor="@color/colorPrimary"
-            android:textSize="50sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity ="center"
+            android:padding="20dp"
+            >
+
+            <TextView
+                android:id="@+id/fullscreen_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:keepScreenOn="true"
+                android:text="@string/dummy_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="50sp"
+                android:textStyle="bold" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/defaultImg"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/avatar_default"
-                android:layout_gravity="center"
                 app:civ_border_color="@color/colorPrimary"
                 app:civ_border_width="1dp" />
 
             <EditText
+                android:id="@+id/firstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_box_text_back"
                 android:hint="@string/firstname"
-                android:inputType="textEmailAddress"
-                android:padding="15dp" />
+                android:inputType="text"
+                android:padding="10dp" />
+            <TextView
+                android:id="@+id/firstname_error"
+                android:layout_width="349dp"
+                android:layout_height="30dp"
+                android:visibility="gone"
+                android:text="*Firstname is required(min-length 2 char)"
+                android:textColor="@color/error"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                />
+
 
             <EditText
+                android:id="@+id/lastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/input_box_text_back"
                 android:hint="@string/lastname"
-                android:inputType="textEmailAddress"
-                android:padding="15dp" />
+                android:inputType="text"
+                android:padding="10dp" />
+            <TextView
+                android:id="@+id/lastname_error"
+                android:layout_width="349dp"
+                android:layout_height="30dp"
+                android:visibility="gone"
+                android:text="*Lastname is required(min-length 2 char)"
+                android:textColor="@color/error"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                />
 
             <EditText
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/input_box_text_back"
                 android:hint="@string/email_hint"
                 android:inputType="textEmailAddress"
-                android:padding="15dp" />
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/email_error"
+                android:layout_width="wrap_content"
+                android:layout_height="53dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="*Invalid Email"
+                android:textColor="@color/error"
+                android:visibility="gone" />
 
             <EditText
+                android:id="@+id/createPass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/input_box_text_back"
                 android:hint="@string/password_hint"
-                android:inputType="textEmailAddress"
-                android:padding="15dp" />
-
+                android:inputType="textPassword"
+                android:padding="10dp" />
+            <TextView
+                android:id="@+id/password_error"
+                android:layout_width="349dp"
+                android:layout_height="30dp"
+                android:visibility="gone"
+                android:text="*Password is required(min-length 6 char)"
+                android:textColor="@color/error"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                />
             <Button
+                android:id="@+id/btnSign"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/primary_buttons_back"
                 android:text="Signup"
                 android:textColor="@color/white" />
-        </LinearLayout>
-    </RelativeLayout>
 
-</RelativeLayout>
+        </LinearLayout>
+
+</ScrollView>
