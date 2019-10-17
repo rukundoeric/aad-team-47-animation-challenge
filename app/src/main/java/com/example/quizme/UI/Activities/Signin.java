@@ -42,7 +42,7 @@ public class Signin extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Signin.this, CourseListActivity.class));
+                startActivity(new Intent(Signin.this, MainActivity.class));
 
                 //TODO: Add Firebase Auth
             }

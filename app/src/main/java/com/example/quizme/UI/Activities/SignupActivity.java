@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.quizme.Firebase.FirebaseUtil;
+import com.example.quizme.MainActivity;
 import com.example.quizme.Models.SignupDetail;
 import com.example.quizme.R;
 import com.example.quizme.Utils.Helper;
@@ -146,7 +147,7 @@ public class SignupActivity extends AppCompatActivity {
                         mDatabaseReference.child("Users").child(Helper.subString(user.email)).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Intent intent = new Intent(SignupActivity.this, CourseListActivity.class);
+                                Intent intent = new Intent(SignupActivity.this, MainActivity.class);
                                 startActivity(intent);
 
                             }
