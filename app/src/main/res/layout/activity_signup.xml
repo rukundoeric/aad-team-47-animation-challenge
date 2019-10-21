@@ -15,18 +15,6 @@
             android:layout_gravity ="center"
             android:padding="20dp"
             >
-
-            <TextView
-                android:id="@+id/fullscreen_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:keepScreenOn="true"
-                android:text="@string/dummy_content"
-                android:textColor="@color/colorPrimary"
-                android:textSize="50sp"
-                android:textStyle="bold" />
-
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/defaultImg"
                 android:layout_width="150dp"
@@ -117,7 +105,7 @@
                 android:layout_marginTop="10dp"
                 />
             <Button
-                android:id="@+id/btnSign"
+                android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"

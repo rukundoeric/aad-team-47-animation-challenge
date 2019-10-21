@@ -10,4 +10,7 @@
     <string name="firstname">FirstName</string>
     <string name="lastname">LastName</string>
     <string name="next">Next</string>
+    <string name="txtLogin">Login</string>
+    <string name="txtGmail">Gmail</string>
+    <string name="create_an_account">Create an Account</string>
 </resources>
