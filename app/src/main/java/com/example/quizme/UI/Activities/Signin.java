@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.quizme.MainActivity;
 import com.example.quizme.R;
 
 import org.w3c.dom.Text;
@@ -41,7 +42,7 @@ public class Signin extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Signin.this,CourseListActivity.class));
+                startActivity(new Intent(Signin.this, CourseListActivity.class));
 
                 //TODO: Add Firebase Auth
             }

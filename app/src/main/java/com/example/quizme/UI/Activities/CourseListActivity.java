@@ -1,13 +1,19 @@
 package com.example.quizme.UI.Activities;
 
+        import androidx.appcompat.app.AlertDialog;
         import androidx.appcompat.app.AppCompatActivity;
         import androidx.recyclerview.widget.LinearLayoutManager;
         import androidx.recyclerview.widget.RecyclerView;
 
         import android.os.Bundle;
         import android.util.Log;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.Button;
 
         import com.example.quizme.Adapters.CourseAdapter;
+        import com.example.quizme.MainActivity;
         import com.example.quizme.R;
 
         import java.util.ArrayList;
@@ -22,6 +28,31 @@ public class CourseListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
+
+        showDialog();
+
+
+    }
+
+    private void showDialog() {
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+
+        View dialogWelcome = LayoutInflater.from(this).inflate(R.layout.welcome_dialog, viewGroup, false);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogWelcome);
+
+
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        alertDialog.setCancelable(false);
+
+        final Button dismissDialog = dialogWelcome.findViewById(R.id.dismissDialog);
+        dismissDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
     }
 
     private void initImageBitmaps(){
