@@ -6,4 +6,5 @@
     <color name="white">#FFFFFF</color>
     <color name="error">#FF0000</color>
     <color name="gmail">#F88585</color>
+    <color name="course_card">#ECE8E8</color>
 </resources>
