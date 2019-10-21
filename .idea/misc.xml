@@ -6,4 +6,8 @@
   <component name="ProjectType">
     <option name="id" value="Android" />
   </component>
+  <component name="XMakeProjectSettings">
+    <option name="currentArchitecture" value="x86" />
+    <option name="workingDirectory" value="$PROJECT_DIR$" />
+  </component>
 </project>

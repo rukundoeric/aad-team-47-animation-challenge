@@ -13,6 +13,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -50,8 +53,10 @@ public class SignupActivity extends AppCompatActivity {
     EditText email;
     EditText password;
     TextView firstNameError;
+    TextView txtQuizMe;
     Button  btnSignUp;
     ImageView profileImg;
+    Animation anim1,anim2;
     private DatabaseReference mDatabaseReference;
     private StorageReference mStorageRef;
     private ProgressDialog progressBar;
@@ -66,13 +71,28 @@ public class SignupActivity extends AppCompatActivity {
         mStorageRef = FirebaseUtil.mStorageRef;
         progressBar = new ProgressDialog(this);
         user= new SignupDetail();
+
         firstName = (EditText) findViewById(R.id.firstName);
         lastName = (EditText) findViewById(R.id.lastName);
         email =(EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.createPass);
         btnSignUp = (Button) findViewById(R.id.btnSign);
         profileImg = (ImageView) findViewById(R.id.defaultImg);
+        txtQuizMe = (TextView)findViewById(R.id.fullscreen_content);
         firstNameError = (TextView) findViewById(R.id.firstname_error);
+
+        //Initialize Animations
+
+        anim1 = AnimationUtils.loadAnimation(this, R.anim.anim1);
+        anim2 = AnimationUtils.loadAnimation(this, R.anim.anim2);
+
+        //Set Animations
+
+        txtQuizMe.setAnimation(anim1);
+        btnSignUp.setAnimation(anim2);
+
+        //Hide Keyboard
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         profileImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +103,7 @@ public class SignupActivity extends AppCompatActivity {
                 startActivityForResult(intent.createChooser(intent,"Choose Picture"), PICTURE_REQUEST);
             }
         });
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
