@@ -4,41 +4,33 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.quizme.Firebase.FirebaseUtil;
-import com.example.quizme.MainActivity;
 import com.example.quizme.Models.SignupDetail;
 import com.example.quizme.R;
 import com.example.quizme.Utils.Helper;
 import com.example.quizme.Utils.Validation;
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -52,6 +44,7 @@ public class SignupActivity extends AppCompatActivity {
     TextView firstNameError;
     Button  btnSignUp;
     ImageView profileImg;
+    Animation anim1,anim2;
     private DatabaseReference mDatabaseReference;
     private StorageReference mStorageRef;
     private ProgressDialog progressBar;
@@ -66,13 +59,24 @@ public class SignupActivity extends AppCompatActivity {
         mStorageRef = FirebaseUtil.mStorageRef;
         progressBar = new ProgressDialog(this);
         user= new SignupDetail();
+
         firstName = (EditText) findViewById(R.id.firstName);
         lastName = (EditText) findViewById(R.id.lastName);
         email =(EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.createPass);
-        btnSignUp = (Button) findViewById(R.id.btnSign);
+        btnSignUp = (Button) findViewById(R.id.btnLogin);
         profileImg = (ImageView) findViewById(R.id.defaultImg);
         firstNameError = (TextView) findViewById(R.id.firstname_error);
+
+        //Initialize Animations
+
+        anim1 = AnimationUtils.loadAnimation(this, R.anim.anim1);
+
+        //Set Animations
+        btnSignUp.setAnimation(anim2);
+
+        //Hide Keyboard
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         profileImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +87,7 @@ public class SignupActivity extends AppCompatActivity {
                 startActivityForResult(intent.createChooser(intent,"Choose Picture"), PICTURE_REQUEST);
             }
         });
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
